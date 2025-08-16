@@ -1,0 +1,429 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color:  #f7ecd5;
+  color: white;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Carrusel superior con 3 imágenes */
+.carrusel-superior {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+  background-color:  #4A3C2F;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.slide {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+}
+
+.slide img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.slide img:hover {
+  transform: scale(1.05);
+}
+
+/* Contenido inferior */
+.contenido {
+  background-color: transparent; /* ya está envuelta en blanco */
+  color: inherit;
+  padding: 0;
+  text-align: left;
+
+}
+
+h1 {
+  color:  #b58b0f;
+  font-size: 2.5em;
+}
+
+.bloque {
+  margin-top: 40px;
+}
+
+.bloque h2 {
+  color: #004c99;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+.boton-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  z-index: 1001;
+  cursor: pointer;
+}
+.boton-menu img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 200px;
+  height: 100vh;
+  background-color:  #4A3C2F;
+  border-right: 4px solid #fcf6f5;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding-top: 60px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+.menu-lateral.activo {
+  left: 0;
+}
+.logo-lateral {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #b58b0f;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.buscador-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 30px auto;
+  padding: 0 10px;
+  max-width: 180px;
+}
+.buscador-menu input {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  background-color: #f0f0f0;
+  color: #333;
+}
+.buscador-menu button {
+  padding: 6px;
+  background-color: #FF6F61;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+}
+
+.menu-lateral nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+.menu-lateral nav ul li {
+  margin: 25px 0;
+}
+.menu-lateral nav ul li a {
+  color: #ececec;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+.menu-lateral nav ul li a:hover {
+  color: #ffcc22;
+}
+
+.boton-menu.oculto {
+  display: none;
+}
+
+.botones-carrusel {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.btn-carrusel {
+  background-color: #1f3dd688;
+  color: rgb(255, 255, 255);
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-carrusel:hover {
+  background-color: #0000006f;
+  transform: scale(1.05);
+}
+
+@keyframes deslizar-menu {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.menu-lateral.activo {
+  display: block;
+  animation: deslizar-menu 0.4s ease-out forwards;
+}
+
+.zona-principal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px 20px;
+}
+
+.lado-izquierdo {
+  flex: 2;
+  min-width: 280px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #333;
+
+}
+
+.lado-derecho {
+  flex: 1;
+  min-width: 280px;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 100%;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+
+.footer-nica {
+  background-color: #4A3C2F;
+  color: #fffaf3;
+  padding: 60px 30px 30px 30px;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.footer-logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-logo h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #D4A017;
+}
+
+.footer-logo p {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  gap: 30px;
+}
+
+.footer-links h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #D4A017;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 8px 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #fffaf3;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #D4A017;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #d4cbb2;
+  border-top: 1px solid #6b5c4b;
+  padding-top: 20px;
+}
+
+
+
+@media (max-width: 991px) {
+  /* 🧭 Menú lateral en móvil */
+  .menu-lateral {
+    display: none;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+    padding: 30px 20px;
+    border-right: none;
+    border-bottom: 4px solid #ffffff;
+    position: fixed;
+    z-index: 1000;
+    background-color:#4A3C2F;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu-lateral.activo {
+    display: block;
+    animation: deslizar-menu 0.4s ease-out forwards;
+  }
+
+  .boton-menu {
+    top: 15px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    z-index: 1002;
+  }
+
+  .boton-menu img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo-lateral {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .menu-lateral nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-lateral nav ul li {
+    margin: 10px 0;
+  }
+
+  .menu-lateral nav ul li a {
+    font-size: 0.95rem;
+  }
+
+  .buscador-menu {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    margin: 15px auto 25px auto;
+    padding: 0 10px;
+  }
+
+  .buscador-menu input {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 20px 0 0 20px;
+    width: 100%;
+  }
+
+  .buscador-menu button {
+    padding: 5px 8px;
+    border-radius: 0 20px 20px 0;
+  }
+
+  /* 🎞️ Carrusel ajustado */
+  .carrusel-superior {
+    gap: 15px;
+    padding: 20px 10px;
+  }
+
+  .slide img {
+    width: 240px;
+  }
+
+  /* 🔘 Botones del carrusel en columna */
+  .botones-carrusel {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 0 15px;
+  }
+
+  .btn-carrusel {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+    border-radius: 20px;
+  }
+
+  /* 🧱 Distribución de zona principal */
+  .zona-principal {
+    flex-direction: column;
+    padding: 20px;
+    gap: 25px;
+  }
+
+  .lado-izquierdo,
+  .lado-derecho {
+    width: 100%;
+  }
+
+  .lado-izquierdo {
+    padding: 25px 16px;
+  }
+
+  .video-wrapper iframe {
+    height: 220px;
+  }
+
+  .footer-links {
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+}

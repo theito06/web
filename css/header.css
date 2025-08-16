@@ -1,0 +1,153 @@
+/* Animación de entrada */
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-global {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-principal);
+  color: white;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: fadeSlideDown 0.8s ease-out;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  width: 100vw;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* Efecto al hacer scroll */
+body.scrolled .header-global {
+  background-color: #3b2f25;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo-nica h1 {
+  font-size: 20px;
+  color: var(--color-acento);
+  margin: 0;
+  transition: transform 0.3s ease;
+}
+.logo-nica h1:hover {
+  transform: scale(1.05);
+}
+
+/* Navegación */
+.nav-nica {
+  display: flex;
+  gap: 16px; /* menor separación */
+}
+.nav-nica a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+  font-size: 15px;
+}
+.nav-nica a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-acento);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-nica a:hover {
+  color: var(--color-acento);
+}
+.nav-nica a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Buscador */
+.search-nica input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 13px;
+  background-color: #fff;
+  color: var(--color-principal);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+.search-nica input:focus {
+  box-shadow: 0 0 0 3px var(--color-resalte);
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.menu-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive compacto */
+@media (max-width: 768px) {
+  .header-global {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .logo-nica h1 {
+    font-size: 17px;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .nav-nica {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .nav-nica a {
+    font-size: 13px;
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .search-nica {
+    order: -1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .search-nica input {
+    width: 90%;
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
